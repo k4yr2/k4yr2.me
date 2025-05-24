@@ -1,0 +1,6 @@
+.banner {
+    display: flex;
+    background-color: #1b1b1b;
+    width: 100vw;
+    height: 60px;
+}
