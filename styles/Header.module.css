@@ -7,5 +7,5 @@
 
     --header-width: 100vw;
     --header-height: 60px;
-    --header-padding-h: 2%;
+    --header-padding-h: max(8px, 2%);
 }
