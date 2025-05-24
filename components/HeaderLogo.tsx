@@ -6,13 +6,11 @@ const rubik = Chivo_Mono({ subsets: ['latin'], weight: '700' });
 export const HeaderLogo = () => {
     return (
         <div className={[styles.headerLogo, rubik.className].join(' ')}>
-            <div className={styles.charBox}>
-                <span className={styles.charK}>K</span>
-                <span className={styles.char4}>4</span>
-                <span className={styles.charY}>Y</span>
-                <span className={styles.charR}>R</span>
-                <span className={styles.char2}>2</span>
-            </div>
+            <span className={styles.charK}>K</span>
+            <span className={styles.char4}>4</span>
+            <span className={styles.charY}>Y</span>
+            <span className={styles.charR}>R</span>
+            <span className={styles.char2}>2</span>
         </div>
     );
 }
