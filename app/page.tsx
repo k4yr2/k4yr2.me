@@ -1,7 +1,7 @@
 export const Home = () => {
   return (
     <div>
-      <img src="/gitchart.svg" alt="Logo"/>
+      HiHa
     </div>
   );
 }
