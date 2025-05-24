@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      Hello World
+      <img src="/gitchart.svg" alt="Logo"/>
     </div>
   );
 }
