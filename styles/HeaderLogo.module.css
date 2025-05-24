@@ -24,3 +24,15 @@
 .headerLogo:hover > * {
     font-size: 28px;
 }
+
+.charK, .charY, .charR {
+  color: #bababa;
+}
+
+.char4 {
+  color: #ff6500;
+}
+
+.char2 {
+  color: #009aff;
+}
