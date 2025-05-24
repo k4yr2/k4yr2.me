@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
 
-    --header-width: 100vw;
+    --header-width: 100%;
     --header-height: 12vh;
     --header-padding-h: max(8px, 2%);
 }
