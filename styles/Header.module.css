@@ -1,9 +1,11 @@
 .header {
-    width: calc(100vw - var(--header-padding-h) * 2);
-    height: 60px;
+    width: calc(var(--header-width) - var(--header-padding-h) * 2);
+    height: var(--header-height);
     padding: 0 var(--header-padding-h);
     display: flex;
     background-color: #1b1b1b;
 
+    --header-width: 100vw;
+    --header-height: 60px;
     --header-padding-h: 2%;
 }
