@@ -1,0 +1,9 @@
+.headerLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 12px;
+    font-size: xx-large;
+    user-select: none;
+}
