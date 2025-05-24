@@ -1,17 +1,10 @@
 "use client";
-import Typewriter from 'typewriter-effect';
+import Hero from '@/components/Hero';
 
 const HomePage = () => {
   return (
     <div>
-      HiHa
-      <Typewriter
-        options={{
-          strings: ['Hello', 'World'],
-          autoStart: true,
-          loop: true,
-        }}
-      />
+      <Hero />
     </div>
   );
 }
