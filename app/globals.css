@@ -23,6 +23,6 @@ body {
   color: var(--foreground);
   background: var(--background);
 
-  --body-margin-h: 10vw;
+  --body-margin-h: 120px;
   --body-width: 100%;
 }
