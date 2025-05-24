@@ -1,6 +1,6 @@
 "use client";
 
-export const Home = () => {
+const HomePage = () => {
   return (
     <div>
       HiHa
@@ -8,4 +8,4 @@ export const Home = () => {
   );
 }
 
-export default Home;
+export default HomePage;

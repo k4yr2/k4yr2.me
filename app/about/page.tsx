@@ -1,6 +1,6 @@
 "use client";
 
-export const AboutPage = () => {
+const AboutPage = () => {
   return (
     <div>
       <img src="/gitchart.svg"></img>
