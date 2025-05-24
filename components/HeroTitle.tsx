@@ -1,8 +1,9 @@
+import styles from '@/styles/HeroTitle.module.css';
 import Typewriter from 'typewriter-effect';
 
 const HeroTitle = () => {
     return (
-        <div>
+        <div className={styles.heroTitle}>
             <Typewriter component="div"
                 options={{
                 delay: 50,
