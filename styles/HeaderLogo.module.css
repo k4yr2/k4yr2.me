@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     width: 96px;
-    height: auto;
+    height: 32px;
     padding: 4px 2px;
     margin: 12px 0px;
     border-radius: 8px;
@@ -13,7 +13,6 @@
 
 .headerLogo:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .headerLogo > * {
@@ -22,11 +21,11 @@
 }
 
 .headerLogo:hover > * {
-    font-size: 28px;
+    font-size: 36px;
 }
 
 .charK, .charY, .charR {
-  color: #697669;
+  color: #FFFFFF;
 }
 
 .char4 {
