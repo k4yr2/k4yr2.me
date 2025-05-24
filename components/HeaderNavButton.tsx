@@ -1,3 +1,4 @@
+import styles from '@/styles/HeaderNavButton.module.css';
 import Link from 'next/link';
 
 export const HeaderNavButton = ({ to } :  HeaderNavButtonProps) => {
@@ -5,7 +6,9 @@ export const HeaderNavButton = ({ to } :  HeaderNavButtonProps) => {
     const text = to[0].toUpperCase() + to.slice(1).toLowerCase();
 
     return (
-        <Link href={href}>{text}</Link>
+        <Link href={href} className={styles.headerNavButton}>
+            {text}
+        </Link>
     );
 }
 
