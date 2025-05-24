@@ -2,17 +2,23 @@ import styles from '@/styles/HeroTitle.module.css';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { Space_Grotesk } from 'next/font/google';
 import { useEffect, useRef, useState } from 'react';
+import k4yr2Store from '@/data/store';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
 
 const HeroTitle = () => {
     const [first, setFirst] = useState(false);
     const secondWriter = useRef<TypewriterClass>(null);
+    const setAnimated = k4yr2Store((state) => state.setAnimated);
 
     useEffect(() => {
         if (first && secondWriter.current) {
             secondWriter.current
                 .typeString("M. Kayra")
+                .pauseFor(300)
+                .callFunction(() => {
+                    setAnimated();
+                })
                 .start();
         }
     }, [first]);
