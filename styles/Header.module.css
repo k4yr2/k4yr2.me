@@ -3,9 +3,10 @@
     height: var(--header-height);
     padding: 0 var(--header-padding-h);
     display: flex;
-    background-color: #1b1b1b;
+    align-items: center;
+    justify-content: space-between;
 
     --header-width: 100vw;
-    --header-height: 60px;
+    --header-height: 12vh;
     --header-padding-h: max(8px, 2%);
 }
