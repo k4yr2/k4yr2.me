@@ -1,6 +1,6 @@
 import styles from '@/styles/Banner.module.css';
 
-export const Banner = () => {
+export const Header = () => {
     return (
         <div className={styles.banner}>
             k4yr2
@@ -8,4 +8,4 @@ export const Banner = () => {
     );
 }
 
-export default Banner;
+export default Header;
