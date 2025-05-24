@@ -1,3 +1,8 @@
+.heroTitle {
+    text-align: center;
+    margin: 20px 0;
+}
+
 .heroTitle > * {
     font-size: 36px;
 }
