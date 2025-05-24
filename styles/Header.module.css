@@ -1,6 +1,9 @@
 .header {
+    width: calc(100vw - var(--header-padding-h) * 2);
+    height: 60px;
+    padding: 0 var(--header-padding-h);
     display: flex;
     background-color: #1b1b1b;
-    width: 100vw;
-    height: 60px;
+
+    --header-padding-h: 2%;
 }
