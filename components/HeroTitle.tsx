@@ -19,38 +19,42 @@ const HeroTitle = () => {
 
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>
-            <Typewriter component="div"
-                options={{
-                delay: 50,
-                deleteSpeed: 30,
-                cursor: '',
-                }}
-                onInit={
-                    (typewriter) => {
-                        if(!first) {
-                            typewriter
-                            .pauseFor(500)
-                            .typeString('Hi, ').pauseFor(300)
-                            .typeString("I'm Kayra").pauseFor(1000)
-                            .deleteChars(7).pauseFor(300)
-                            .callFunction(() => setFirst(true))
-                            .start();
+            <div className={styles.writerFirst}>
+                <Typewriter component="div"
+                    options={{
+                    delay: 50,
+                    deleteSpeed: 30,
+                    cursor: '',
+                    }}
+                    onInit={
+                        (typewriter) => {
+                            if(!first) {
+                                typewriter
+                                .pauseFor(500)
+                                .typeString('Hi, ').pauseFor(300)
+                                .typeString("I'm Kayra").pauseFor(1000)
+                                .deleteChars(7).pauseFor(300)
+                                .callFunction(() => setFirst(true))
+                                .start();
+                            }
                         }
                     }
-                }
-            />
-            <Typewriter component="div"
-                options={{
-                delay: 50,
-                deleteSpeed: 30,
-                cursor: '',
-                }}
-                onInit={
-                    (typewriter) => {
-                        secondWriter.current = typewriter;
+                />
+            </div>
+            <div className={styles.writerSecond}>
+                <Typewriter component="div"
+                    options={{
+                    delay: 50,
+                    deleteSpeed: 30,
+                    cursor: '',
+                    }}
+                    onInit={
+                        (typewriter) => {
+                            secondWriter.current = typewriter;
+                        }
                     }
-                }
-            />
+                />
+            </div>
         </div>
     );
 }

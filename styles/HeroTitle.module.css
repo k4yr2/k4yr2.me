@@ -9,3 +9,12 @@
 .heroTitle > * {
     font-size: 36px;
 }
+
+.writerFirst {
+    color: var(--foreground);
+}
+
+.writerSecond {
+    color: #ff6500;
+    padding: 0 8px;
+}
