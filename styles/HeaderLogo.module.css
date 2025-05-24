@@ -9,6 +9,7 @@
     border-radius: 8px;
     user-select: none;
     transition: all 0.25s ease-in-out;
+    text-decoration: none;
 }
 
 .headerLogo:hover {
