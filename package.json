@@ -34,7 +34,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/k4yr2/k4yr2.me/issues"
   },
