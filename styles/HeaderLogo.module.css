@@ -4,8 +4,8 @@
     justify-content: center;
     width: 96px;
     height: auto;
-    padding: 4px 4px;
-    margin: 8px 0px;
+    padding: 4px 2px;
+    margin: 12px 0px;
     border-radius: 8px;
     user-select: none;
     transition: all 0.25s ease-in-out;
@@ -26,7 +26,7 @@
 }
 
 .charK, .charY, .charR {
-  color: #bababa;
+  color: #697669;
 }
 
 .char4 {
@@ -35,4 +35,5 @@
 
 .char2 {
   color: #009aff;
+padding: 0 2px;
 }
