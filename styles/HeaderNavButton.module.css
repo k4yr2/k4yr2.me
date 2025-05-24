@@ -1,6 +1,11 @@
 .headerNavButton {
     text-decoration: none;
-    background-color: aquamarine;
-    padding: 8px 16px;
-    margin: 0 4px;
+    padding: 7px 14px;
+    margin: 0 3px;
+    border-radius: 21px;
+}
+
+.active {
+    background-color: var(--foreground);
+    color: var(--background);
 }
