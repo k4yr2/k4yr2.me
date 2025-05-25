@@ -48,7 +48,7 @@ const HeroTitle = () => {
                     }
                 />}
             </div>
-            <div className={styles.writerSecond}>
+            <div className={styles.writerSecond + ' ' + (isAnimated ? styles.animated : '')}>
                 {isAnimated ? <>M. Kayra</> 
                 : <Typewriter options={{
                     delay: 50,
