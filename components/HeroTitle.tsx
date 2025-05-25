@@ -1,7 +1,7 @@
 import styles from '@/styles/HeroTitle.module.css';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { Space_Grotesk } from 'next/font/google';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import k4yr2Store from '@/data/store';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
