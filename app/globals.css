@@ -63,3 +63,15 @@ body {
     --body-margin-h: 80px;
   }
 }
+
+@media (min-width: 1025px) and (max-width: 1441px) { /* large desktop */
+  body {
+    --body-margin-h: 120px;
+  }
+}
+
+@media (min-width: 1441) { /* 4K */
+  body {
+    --body-margin-h: 160px;
+  }
+}
