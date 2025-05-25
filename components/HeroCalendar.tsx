@@ -1,9 +1,13 @@
 import appStore from "@/data/store";
+import formatDate from "@/utils/formatDate";
+import { Tooltip } from "@mui/material";
 import { useState, useEffect } from "react";
 import ActivityCalendar, { ThemeInput } from "react-activity-calendar";
 
 const HeroCalendar = () => {
-    const [data, setData] = useState([]);
+    const source = appStore((state) => state.calendarSource);
+    const setSource = appStore((state) => state.setCalendarSource);
+
     const [loading, setLoading] = useState(true);
     const isAnimated = appStore((state) => state.isAnimated);
 
@@ -16,7 +20,7 @@ const HeroCalendar = () => {
                 return res.json();
             })
             .then(json => {
-                setData(json);
+                setSource(json);
                 setLoading(false);
             })
             .catch(err => {
@@ -53,7 +57,7 @@ const HeroCalendar = () => {
     return (
         <div className="hero-calendar" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <ActivityCalendar style={{ visibility: isAnimated ? 'visible' : 'hidden' }}
-                data={data} loading={loading}
+                data={source} loading={isAnimated ? false : loading}
                 theme={isAnimated ? explicitTheme : undefined}
                 showWeekdayLabels={false}
                 hideColorLegend={true}
@@ -61,6 +65,11 @@ const HeroCalendar = () => {
                 blockMargin={2}
                 blockRadius={0}
                 blockSize={blockSize}
+                renderBlock={(block, activity) => (
+                    <Tooltip title={`${activity.count} contributions on ${formatDate(activity.date)}`}>
+                        {block}
+                    </Tooltip>
+                )}
             />
         </div>
     )
