@@ -27,3 +27,7 @@ body {
   --body-margin-h: 120px;
   --body-width: 100%;
 }
+
+.Typewriter__cursor {
+  display: none;
+}
