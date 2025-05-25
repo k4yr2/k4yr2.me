@@ -9,12 +9,18 @@ export async function GET() {
         return NextResponse.json(typeof cached === 'string' ? JSON.parse(cached) : cached);
     }
 
+    const variables = {
+        username: username,
+        from: '2025-01-01T00:00:00Z',
+        to: '2025-12-31T23:59:59Z'
+    };
+
     const response = await fetch('https://api.github.com/graphql', {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: query() }),
+        body: JSON.stringify({ query: query(), variables }),
     });
 
     const result = await response.json();
@@ -50,9 +56,9 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
 const username = 'k4yr2';
 
 const query = () =>`
-    query {
-    user(login: "${username}") {
-            contributionsCollection {
+    query($username: String!, $from: DateTime!, $to: DateTime!) {
+    user(login: $username) {
+            contributionsCollection(from: $from, to: $to) {
                 contributionCalendar {
                     weeks {
                         contributionDays {
