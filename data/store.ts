@@ -5,9 +5,9 @@ export interface AppState {
     setAnimated: () => void;
 }
 
-const k4yr2Store = create<AppState>((set) => ({
+const appStore = create<AppState>((set) => ({
     isAnimated: false,
     setAnimated: () => set(() => ({ isAnimated: true })),
 }))
 
-export default k4yr2Store;
+export default appStore;

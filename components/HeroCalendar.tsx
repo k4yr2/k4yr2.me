@@ -1,11 +1,11 @@
-import k4yr2Store from "@/data/store";
+import appStore from "@/data/store";
 import { useState, useEffect } from "react";
 import ActivityCalendar, { ThemeInput } from "react-activity-calendar";
 
 const HeroCalendar = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const isAnimated = k4yr2Store((state) => state.isAnimated);
+    const isAnimated = appStore((state) => state.isAnimated);
 
     useEffect(() => {
         fetch('/api/github-activity')

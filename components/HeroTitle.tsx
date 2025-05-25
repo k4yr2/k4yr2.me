@@ -2,14 +2,14 @@ import styles from '@/styles/HeroTitle.module.css';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { Space_Grotesk } from 'next/font/google';
 import { useRef } from 'react';
-import k4yr2Store from '@/data/store';
+import appStore from '@/data/store';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
 
 const HeroTitle = () => {
     const secondWriter = useRef<TypewriterClass>(null);
-    const isAnimated = k4yr2Store((state) => state.isAnimated);
-    const setAnimated = k4yr2Store((state) => state.setAnimated);
+    const isAnimated = appStore((state) => state.isAnimated);
+    const setAnimated = appStore((state) => state.setAnimated);
 
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>
