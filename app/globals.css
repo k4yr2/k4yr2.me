@@ -71,7 +71,7 @@ body {
 
 @media (min-width: 1025px) and (max-width: 1441px) { /* large desktop */
   body {
-    --body-margin-h: 120px;
+    --body-margin-h: 100px;
     --header-logo-size: 36px;
   }
 }
