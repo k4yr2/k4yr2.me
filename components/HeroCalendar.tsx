@@ -9,6 +9,7 @@ const HeroCalendar = () => {
     const setSource = appStore((state) => state.setCalendarSource);
 
     const onDev = process.env.NODE_ENV === 'development';
+    const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     const [loading, setLoading] = useState(true);
     const isAnimated = appStore((state) => state.isAnimated);
@@ -68,7 +69,7 @@ const HeroCalendar = () => {
                 blockRadius={0}
                 blockSize={blockSize}
                 renderBlock={(block, activity) => (
-                    onDev ? <>{block}</> :
+                    onDev || isMobile ? <>{block}</> :
                     <Tooltip title={`${activity.count} contributions on ${formatDate(activity.date)}`}>
                         {block}
                     </Tooltip>
