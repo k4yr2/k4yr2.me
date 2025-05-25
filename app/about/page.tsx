@@ -1,9 +1,10 @@
 "use client";
+import Image from "next/image";
 
 const AboutPage = () => {
   return (
     <div>
-      <img src="/gitchart.svg" style={{width: "100%"}}></img>
+      <Image src="/gitchart.svg" alt="Git Chart" style={{width: "100%"}}></Image>
     </div>
   );
 }
