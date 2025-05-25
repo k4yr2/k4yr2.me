@@ -1,11 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Redis } from '@upstash/redis';
 
-const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_HOST!,
-    token: process.env.UPSTASH_REDIS_PASSWORD!,
-});
-
 export async function GET() {
     const cacheKey = 'github_activity';
     const cached = await redis.get(cacheKey);
@@ -14,33 +9,12 @@ export async function GET() {
         return NextResponse.json(typeof cached === 'string' ? JSON.parse(cached) : cached);
     }
 
-    const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
-    const username = 'k4yr2';
-
-    const query = `
-        query {
-        user(login: "${username}") {
-            contributionsCollection {
-            contributionCalendar {
-                weeks {
-                contributionDays {
-                    date
-                    contributionCount
-                }
-                }
-            }
-            }
-        }
-        }
-    `;
-
     const response = await fetch('https://api.github.com/graphql', {
         method: 'POST',
         headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-        'Content-Type': 'application/json',
+            Authorization: `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ query: query() }),
     });
 
     const result = await response.json();
@@ -53,25 +27,52 @@ export async function GET() {
     const maxCount = Math.max(...days.map((d: any) => d.contributionCount));
 
     const withLevels = days.map((d: any) => {
-        let level = 0;
-        const count = d.contributionCount;
-
-        if (count > 0) {
-        const ratio = count / maxCount;
-        if (ratio > 0.75) level = 4;
-        else if (ratio > 0.5) level = 3;
-        else if (ratio > 0.25) level = 2;
-        else if (ratio > 0) level = 1;
-        }
-
         return {
             date: d.date,
             count: d.contributionCount,
-            level,
+            level: level(d.contributionCount, maxCount),
         };
     });
 
     await redis.set(cacheKey, JSON.stringify(withLevels), { ex: 3600 });
 
     return NextResponse.json(withLevels);
+}
+
+// ------------------------------ // -  - // ------------------------------ //
+
+const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_HOST!,
+    token: process.env.UPSTASH_REDIS_PASSWORD!,
+});
+
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
+const username = 'k4yr2';
+
+const query = () =>`
+    query {
+    user(login: "${username}") {
+            contributionsCollection {
+                contributionCalendar {
+                    weeks {
+                        contributionDays {
+                            date
+                            contributionCount
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const level = (count: number, maxCount: number) => {
+    const ratio = count / maxCount;
+
+    if (ratio > 0.75) return 4;
+    if (ratio > 0.5) return 3;
+    if (ratio > 0.25) return 2;
+    if (count > 0) return 1;
+
+    return 0;
 }
