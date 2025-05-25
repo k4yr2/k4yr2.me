@@ -24,11 +24,12 @@ const HeroTitle = () => {
                         (typewriter) => { typewriter
                             .pauseFor(500)
                             .typeString('Hi, ').pauseFor(300)
-                            .typeString("I'm Kayra").pauseFor(1000)
+                            .typeString("I'm Kayra").pauseFor(700)
+                            .deleteChars(7).pauseFor(300)
                             .callFunction(() => {
                                 secondWriter.current!
                                     .typeString("M. Kayra")
-                                    .pauseFor(300)
+                                    .pauseFor(200)
                                     .callFunction(() => {
                                         setAnimated();
                                     })
