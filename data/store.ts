@@ -4,15 +4,15 @@ import { create } from "zustand";
 export interface AppState {
     isAnimated: boolean;
     setAnimated: () => void;
-    calendarSource: Activity[] | null;
-    setCalendarSource: (source: Activity[] | null) => void;
+    calendarSource: Activity[];
+    setCalendarSource: (source: Activity[]) => void;
 }
 
 const appStore = create<AppState>((set) => ({
     isAnimated: false,
     setAnimated: () => set(() => ({ isAnimated: true })),
-    calendarSource: null,
-    setCalendarSource: (source: Activity[] | null) => set(() => ({ calendarSource: source })),
+    calendarSource: [],
+    setCalendarSource: (source: Activity[]) => set(() => ({ calendarSource: source })),
 }))
 
 export default appStore;
