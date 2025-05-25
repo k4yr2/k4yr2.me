@@ -24,10 +24,42 @@ body {
   color: var(--foreground);
   background: var(--background);
 
-  --body-margin-h: 120px;
-  --body-width: 100%;
 }
 
 .Typewriter__cursor {
   display: none;
+}
+
+:root {
+  --body-width: 100%;
+}
+
+@media (max-width: 321px) { /* mobile-s */
+  body {
+    --body-margin-h: 20px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 376px) { /* mobile-m */
+  body {
+    --body-margin-h: 30px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 426px) { /* mobile-l */
+  body {
+    --body-margin-h: 40px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 769px) { /* tablet */
+  body {
+    --body-margin-h: 60px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1025px) { /* desktop */
+  body {
+    --body-margin-h: 80px;
+  }
 }
