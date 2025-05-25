@@ -36,49 +36,49 @@ body {
 
 @media (max-width: 321px) { /* mobile-s */
   body {
-    --body-margin-h: 10px;
-    --header-logo-size: 16px;
-  }
-}
-
-@media (min-width: 321px) and (max-width: 376px) { /* mobile-m */
-  body {
     --body-margin-h: 20px;
     --header-logo-size: 20px;
   }
 }
 
+@media (min-width: 321px) and (max-width: 376px) { /* mobile-m */
+  body {
+    --body-margin-h: 24px;
+    --header-logo-size: 24px;
+  }
+}
+
 @media (min-width: 376px) and (max-width: 426px) { /* mobile-l */
   body {
-    --body-margin-h: 30px;
-    --header-logo-size: 24px;
+    --body-margin-h: 28px;
+    --header-logo-size: 28px;
   }
 }
 
 @media (min-width: 426px) and (max-width: 769px) { /* tablet */
   body {
-    --body-margin-h: 40px;
-    --header-logo-size: 28px;
+    --body-margin-h: 36px;
+    --header-logo-size: 36px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1025px) { /* desktop */
   body {
-    --body-margin-h: 60px;
-    --header-logo-size: 32px;
+    --body-margin-h: 48px;
+    --header-logo-size: 48px;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1441px) { /* large desktop */
   body {
-    --body-margin-h: 80px;
-    --header-logo-size: 36px;
+    --body-margin-h: 56px;
+    --header-logo-size: 48px;
   }
 }
 
 @media (min-width: 1441px) { /* 4K */
   body {
-    --body-margin-h: 100px;
+    --body-margin-h: 64px;
     --header-logo-size: 48px;
   }
 }
