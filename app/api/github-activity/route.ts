@@ -26,7 +26,7 @@ export async function GET() {
 
     const maxCount = Math.max(...days.map((d: any) => d.contributionCount));
 
-    const withLevels = days.map((d: any) => {
+    const data = days.map((d: any) => {
         return {
             date: d.date,
             count: d.contributionCount,
@@ -34,9 +34,9 @@ export async function GET() {
         };
     });
 
-    await redis.set(cacheKey, JSON.stringify(withLevels), { ex: 3600 });
+    await redis.set(cacheKey, JSON.stringify(data), { ex: 3600 });
 
-    return NextResponse.json(withLevels);
+    return NextResponse.json(data);
 }
 
 // ------------------------------ // -  - // ------------------------------ //
