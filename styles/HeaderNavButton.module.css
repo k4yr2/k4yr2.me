@@ -2,8 +2,8 @@
     color: var(--foreground);
     text-decoration: none;
     padding: 7px 14px;
-    margin: 0 11px;
     border-radius: 21px;
+    font-size: calc(var(--header-logo-size) / 3);
 }
 
 .active {
