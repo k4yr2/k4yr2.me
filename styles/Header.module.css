@@ -1,12 +1,10 @@
 .header {
     width: calc(var(--header-width) - var(--header-padding-h) * 2);
     height: var(--header-height);
-    padding: 0 var(--header-padding-h);
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     --header-width: 100%;
-    --header-height: calc(var(--body-margin-h) + 40px);
     --header-padding-h: max(8px, 2%);
 }
