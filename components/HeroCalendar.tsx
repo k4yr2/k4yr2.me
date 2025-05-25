@@ -24,10 +24,15 @@ const HeroCalendar = () => {
 
     const explicitTheme: ThemeInput = {
     light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-    dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+    dark: ['#151B23', '#007728', '#02A232', '#0AC740', '#4AE168'],
     };
 
-    return <ActivityCalendar data={data} loading={loading} theme={explicitTheme} />;
+    return <ActivityCalendar data={data} loading={loading} 
+        theme={explicitTheme} 
+        showWeekdayLabels={false}
+        hideColorLegend={true}
+        hideMonthLabels={true} 
+    />;
 }
 
 export default HeroCalendar;
