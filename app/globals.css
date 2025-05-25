@@ -76,7 +76,7 @@ body {
   }
 }
 
-@media (min-width: 1441) { /* 4K */
+@media (min-width: 1441px) { /* 4K */
   body {
     --body-margin-h: 120px;
     --header-logo-size: 48px;
