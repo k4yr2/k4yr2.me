@@ -3,7 +3,7 @@
 const AboutPage = () => {
   return (
     <div>
-      <img src="/gitchart.svg"></img>
+      <img src="/gitchart.svg" style={{width: "100%"}}></img>
     </div>
   );
 }
