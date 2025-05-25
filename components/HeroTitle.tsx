@@ -22,12 +22,12 @@ const HeroTitle = () => {
                 })
                 .start();
         }
-    }, [first]);
+    }, [first, setAnimated]);
 
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>
             <div className={styles.writerFirst}>
-                {isAnimated ? <>Hi, I'</> 
+                {isAnimated ? <>Hi, I&apos;</> 
                 : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
