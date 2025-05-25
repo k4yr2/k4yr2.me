@@ -32,6 +32,9 @@ const HeroCalendar = () => {
         showWeekdayLabels={false}
         hideColorLegend={true}
         hideMonthLabels={true} 
+        blockMargin={2}
+        blockRadius={0}
+        blockSize={16}
     />;
 }
 
