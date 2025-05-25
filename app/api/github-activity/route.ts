@@ -72,7 +72,7 @@ const level = (count: number, maxCount: number) => {
     if (ratio > 0.75) return 4;
     if (ratio > 0.5) return 3;
     if (ratio > 0.25) return 2;
-    if (count > 0) return 1;
+    if (ratio > 0) return 1;
 
     return 0;
 }
