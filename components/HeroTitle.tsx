@@ -9,6 +9,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
 const HeroTitle = () => {
     const [first, setFirst] = useState(false);
     const secondWriter = useRef<TypewriterClass>(null);
+    const isAnimated = k4yr2Store((state) => state.isAnimated);
     const setAnimated = k4yr2Store((state) => state.setAnimated);
 
     useEffect(() => {
@@ -26,8 +27,8 @@ const HeroTitle = () => {
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>
             <div className={styles.writerFirst}>
-                <Typewriter component="div"
-                    options={{
+                {isAnimated ? <>Hi, I'</> 
+                : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
                     cursor: '',
@@ -45,11 +46,11 @@ const HeroTitle = () => {
                             }
                         }
                     }
-                />
+                />}
             </div>
             <div className={styles.writerSecond}>
-                <Typewriter component="div"
-                    options={{
+                {isAnimated ? <>M. Kayra</> 
+                : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
                     cursor: '',
@@ -59,7 +60,7 @@ const HeroTitle = () => {
                             secondWriter.current = typewriter;
                         }
                     }
-                />
+                />}
             </div>
         </div>
     );
