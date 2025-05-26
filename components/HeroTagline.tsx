@@ -26,9 +26,9 @@ const HeroTagline = () => {
     useEffect(() => {
         switch (animation_now) {
             case AnimationState.animating:
-                writer.current!.pauseFor(500)
-                    .typeString('Now a student').pauseFor(200)
-                    .typeString(' with real-world experiences').pauseFor(200)
+                writer.current!.pauseFor(200)
+                    .typeString('Now a student').pauseFor(360)
+                    .typeString(' with real-world experiences').pauseFor(800)
                     .callFunction(() => {
                         writer.current!.stop();
                         animationFrame(true);
