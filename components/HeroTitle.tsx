@@ -1,20 +1,27 @@
 import styles from '@/styles/HeroTitle.module.css';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { Space_Grotesk } from 'next/font/google';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import appStore from '@/data/store';
+import { AnimationState } from '@/data/state';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
 
 const HeroTitle = () => {
     const secondWriter = useRef<TypewriterClass>(null);
-    const isAnimated = appStore((state) => state.isAnimated);
-    const setAnimated = appStore((state) => state.setAnimated);
+    const animation = appStore((state) => state.home.animation.title);
+    const animationFrame = appStore((state) => state.home.animation.next);
+
+    useEffect(() => {
+        if (animation === 'waiting') {
+            animationFrame();
+        }
+    }, []);
 
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>
             <div className={styles.writerFirst}>
-                {isAnimated ? <>Hi, I&apos;</> 
+                {animation == AnimationState.animated ? <>Hi, I&apos;</> 
                 : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
@@ -31,7 +38,7 @@ const HeroTitle = () => {
                                     .typeString("M. Kayra")
                                     .pauseFor(200)
                                     .callFunction(() => {
-                                        setAnimated();
+                                        animationFrame();
                                     })
                                     .start();
                             })
@@ -40,8 +47,8 @@ const HeroTitle = () => {
                     }
                 />}
             </div>
-            <div className={styles.writerSecond + ' ' + (isAnimated ? styles.animated : '')}>
-                {isAnimated ? <>M. Kayra</> 
+            <div className={styles.writerSecond + ' ' + (animation == AnimationState.animated ? styles.animated : '')}>
+                {animation == AnimationState.animated ? <>M. Kayra</> 
                 : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
