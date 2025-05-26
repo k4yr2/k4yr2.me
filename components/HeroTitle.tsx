@@ -38,7 +38,7 @@ const HeroTitle = () => {
                                     .typeString("M. Kayra")
                                     .pauseFor(200)
                                     .callFunction(() => {
-                                        animationFrame();
+                                        animationFrame(true);
                                     })
                                     .start();
                             })
