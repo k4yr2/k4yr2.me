@@ -18,6 +18,8 @@ export interface HomeAnimationState {
     tagline: AnimationState;
     calendar: AnimationState;
     techStack: AnimationState;
+
+    next: () => boolean;
 }
 
 export interface HomeCalendarState {
