@@ -12,10 +12,10 @@ const appStore = create<AppState>()(immer((set) => ({
             calendar: AnimationState.waiting,
             techStack: AnimationState.waiting,
 
-            frame: () => {
+            frame: (trigger? : boolean) => {
                 let changed = false;
                 set((state) => {
-                    changed = animationFrame(state.home.animation as unknown as AnimationRecord);
+                    changed = animationFrame(state.home.animation as unknown as AnimationRecord, trigger);
                 })
 
                 return changed;
