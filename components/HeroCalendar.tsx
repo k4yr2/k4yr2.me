@@ -1,3 +1,4 @@
+import { AnimationState } from "@/data/state";
 import appStore from "@/data/store";
 import formatDate from "@/utils/formatDate";
 import { Tooltip } from "@mui/material";
@@ -5,14 +6,13 @@ import { useState, useEffect } from "react";
 import ActivityCalendar, { ThemeInput } from "react-activity-calendar";
 
 const HeroCalendar = () => {
-    const source = appStore((state) => state.calendarSource);
-    const setSource = appStore((state) => state.setCalendarSource);
+    const source = appStore((state) => state.home.calendar.source);
+    const loading = appStore((state) => state.home.calendar.loading);
+    const bind = appStore((state) => state.home.calendar.bind);
+    const animation = appStore((state) => state.home.animation.calendar);
 
     const onDev = process.env.NODE_ENV === 'development';
     const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    const [loading, setLoading] = useState(true);
-    const isAnimated = appStore((state) => state.isAnimated);
 
     useEffect(() => {
         fetch('/api/github-activity')
@@ -23,8 +23,7 @@ const HeroCalendar = () => {
                 return res.json();
             })
             .then(json => {
-                setSource(json);
-                setLoading(false);
+                bind(json);
             })
             .catch(err => {
                 console.error('Fetch error:', err);
@@ -53,15 +52,15 @@ const HeroCalendar = () => {
     }, []);
 
     const explicitTheme: ThemeInput = {
-    light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-    dark: ['#151B23', '#007728', '#02A232', '#0AC740', '#4AE168'],
+        light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+        dark: ['#151B23', '#007728', '#02A232', '#0AC740', '#4AE168'],
     };
 
     return (
         <div className="hero-calendar" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <ActivityCalendar style={{ visibility: isAnimated ? 'visible' : 'hidden' }}
-                data={source} loading={isAnimated ? false : loading}
-                theme={isAnimated ? explicitTheme : undefined}
+            <ActivityCalendar style={{ visibility: animation != AnimationState.waiting ? 'visible' : 'hidden' }}
+                data={source} loading={loading}
+                theme={explicitTheme}
                 showWeekdayLabels={false}
                 hideColorLegend={true}
                 hideMonthLabels={true}
