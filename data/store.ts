@@ -2,7 +2,7 @@ import { Activity } from "react-activity-calendar";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import AppState, { AnimationRecord, AnimationState } from "./state";
-import animationFrame from "@/utils/nextAnimation";
+import animationFrame from "@/utils/animationFrame";
 
 const appStore = create<AppState>()(immer((set) => ({
     home: {
