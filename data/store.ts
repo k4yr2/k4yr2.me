@@ -7,8 +7,11 @@ import animationFrame from "@/utils/animationFrame";
 const appStore = create<AppState>()(immer((set) => ({
     home: {
         animation: {
-            title: AnimationState.waiting,
-            tagline: AnimationState.waiting,
+            title_hi: AnimationState.waiting,
+            tagline_once: AnimationState.waiting,
+            tagline_now: AnimationState.waiting,
+            title_back: AnimationState.waiting,
+            title_name: AnimationState.waiting,
             calendar: AnimationState.waiting,
             techStack: AnimationState.waiting,
 

@@ -14,8 +14,11 @@ export interface HomeState {
 }
 
 export interface HomeAnimationState {
-    title: AnimationState;
-    tagline: AnimationState;
+    title_hi: AnimationState;
+    tagline_once: AnimationState;
+    title_back: AnimationState;
+    tagline_now: AnimationState;
+    title_name: AnimationState
     calendar: AnimationState;
     techStack: AnimationState;
 

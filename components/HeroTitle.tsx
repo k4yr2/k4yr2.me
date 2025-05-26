@@ -8,47 +8,80 @@ import { AnimationState } from '@/data/state';
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
 
 const HeroTitle = () => {
+    const firstWriter = useRef<TypewriterClass>(null);
     const secondWriter = useRef<TypewriterClass>(null);
-    const animation = appStore((state) => state.home.animation.title);
+    const animation_hi = appStore((state) => state.home.animation.title_hi);
+    const animation_back = appStore((state) => state.home.animation.title_back);
+    const animation_name = appStore((state) => state.home.animation.title_name);
+
     const animationFrame = appStore((state) => state.home.animation.frame);
 
     useEffect(() => {
-        if (animation === 'waiting') {
-            animationFrame();
+        switch (animation_hi) {
+            case AnimationState.waiting:
+                animationFrame();
+                break;
+            case AnimationState.animating:
+                firstWriter.current!.pauseFor(500)
+                    .typeString('Hi, ').pauseFor(300)
+                    .typeString("I'm Kayra").pauseFor(700)
+                    .callFunction(() => {
+                        firstWriter.current!.stop();
+                        animationFrame(true);
+                    })
+                    .start();
+                break;
         }
-    }, []);
+    }, [animation_hi]);
+
+    useEffect(() => {
+        switch (animation_back) {
+            case AnimationState.animating:
+                firstWriter.current!
+                    .deleteChars(7)
+                    .pauseFor(300)
+                    .callFunction(() => {
+                        firstWriter.current!.stop();
+                        animationFrame(true);
+                    })
+                .start();
+                break;
+        }
+    }, [animation_back]);
+
+    useEffect(() => {
+        switch (animation_name) {
+            case AnimationState.animating:
+                secondWriter.current!
+                    .typeString("M. Kayra")
+                    .pauseFor(200)
+                    .callFunction(() => {
+                        secondWriter.current!.stop();
+                        animationFrame(true);
+                    })
+                .start();
+                break;
+        }
+    }, [animation_name]);
 
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>
             <div className={styles.writerFirst}>
-                {animation == AnimationState.animated ? <>Hi, I&apos;</> 
+                {animation_name == AnimationState.animated ? <>Hi, I&apos;</> 
                 : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
                     cursor: '',
                     }}
                     onInit={
-                        (typewriter) => { typewriter
-                            .pauseFor(500)
-                            .typeString('Hi, ').pauseFor(300)
-                            .typeString("I'm Kayra").pauseFor(700)
-                            .deleteChars(7).pauseFor(300)
-                            .callFunction(() => {
-                                secondWriter.current!
-                                    .typeString("M. Kayra")
-                                    .pauseFor(200)
-                                    .callFunction(() => {
-                                        animationFrame(true);
-                                    })
-                                    .start();
-                            })
-                            .start();
+                        (typewriter) => { 
+                            firstWriter.current = typewriter;
                         }
                     }
                 />}
             </div>
-            <div className={styles.writerSecond + ' ' + (animation == AnimationState.animated ? styles.animated : '')}>
-                {animation == AnimationState.animated ? <>M. Kayra</> 
+            <div className={styles.writerSecond + ' ' + (animation_name == AnimationState.animated ? styles.animated : '')}>
+                {animation_name == AnimationState.animated ? <>M. Kayra</> 
                 : <Typewriter options={{
                     delay: 50,
                     deleteSpeed: 30,
