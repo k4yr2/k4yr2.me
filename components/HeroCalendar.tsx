@@ -69,7 +69,7 @@ const HeroCalendar = () => {
                 blockSize={blockSize}
                 renderBlock={(block, activity) => (
                     onDev || isMobile ? <>{block}</> :
-                    <Tooltip title={`${activity.count} contributions on ${formatDate(activity.date)}`}>
+                    <Tooltip title={`${activity.count} contributions on ${formatDate(activity.date)}`} disableInteractive>
                         {block}
                     </Tooltip>
                 )}
