@@ -8,7 +8,7 @@ const HeroTagline = () => {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px', marginTop: '20px' }}>
-            {animation == AnimationState.animated ? <>Once an anonymous builder, Now a student with real-world experience</> 
+            {animation == AnimationState.animated ? <>Once an anonymous builder, Now a student with real-world experiences</> 
             : animation == AnimationState.animating ? <Typewriter options={{
                 delay: 25,
                 }}
@@ -17,7 +17,7 @@ const HeroTagline = () => {
                         .pauseFor(500)
                         .typeString('Once an anonymous builder, ').pauseFor(400)
                         .typeString('Now a student').pauseFor(200)
-                        .typeString(' with real-world experience').pauseFor(200)
+                        .typeString(' with real-world experiences').pauseFor(200)
                         .callFunction(() => {
                             animationFrame(true);
                         })
