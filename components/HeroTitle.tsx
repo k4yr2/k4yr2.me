@@ -13,6 +13,7 @@ const HeroTitle = () => {
     const animation_hi = appStore((state) => state.home.animation.title_hi);
     const animation_back = appStore((state) => state.home.animation.title_back);
     const animation_name = appStore((state) => state.home.animation.title_name);
+    const animation_calendar = appStore((state) => state.home.animation.calendar);
 
     const animationFrame = appStore((state) => state.home.animation.frame);
 
@@ -24,7 +25,7 @@ const HeroTitle = () => {
             case AnimationState.animating:
                 firstWriter.current!.pauseFor(500)
                     .typeString('Hi, ').pauseFor(300)
-                    .typeString("I'm Kayra").pauseFor(700)
+                    .typeString("I'm Kayra")
                     .callFunction(() => {
                         firstWriter.current!.stop();
                         animationFrame(true);
@@ -80,7 +81,7 @@ const HeroTitle = () => {
                     }
                 />}
             </div>
-            <div className={styles.writerSecond + ' ' + (animation_name == AnimationState.animated ? styles.animated : '')}>
+            <div className={styles.writerSecond + ' ' + (animation_calendar != AnimationState.waiting ? styles.animated : '')}>
                 {animation_name == AnimationState.animated ? <>M. Kayra</> 
                 : <Typewriter options={{
                     delay: 50,
