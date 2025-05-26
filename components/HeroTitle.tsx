@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700' });
 const HeroTitle = () => {
     const secondWriter = useRef<TypewriterClass>(null);
     const animation = appStore((state) => state.home.animation.title);
-    const animationFrame = appStore((state) => state.home.animation.next);
+    const animationFrame = appStore((state) => state.home.animation.frame);
 
     useEffect(() => {
         if (animation === 'waiting') {

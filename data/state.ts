@@ -19,7 +19,7 @@ export interface HomeAnimationState {
     calendar: AnimationState;
     techStack: AnimationState;
 
-    next: () => boolean;
+    frame: () => boolean;
 }
 
 export interface HomeCalendarState {

@@ -2,7 +2,7 @@ import { Activity } from "react-activity-calendar";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import AppState, { AnimationRecord, AnimationState } from "./state";
-import nextAnimation from "@/utils/nextAnimation";
+import animationFrame from "@/utils/nextAnimation";
 
 const appStore = create<AppState>()(immer((set) => ({
     home: {
@@ -12,10 +12,10 @@ const appStore = create<AppState>()(immer((set) => ({
             calendar: AnimationState.waiting,
             techStack: AnimationState.waiting,
 
-            next: () => {
+            frame: () => {
                 let changed = false;
                 set((state) => {
-                    changed = nextAnimation(state.home.animation as unknown as AnimationRecord);
+                    changed = animationFrame(state.home.animation as unknown as AnimationRecord);
                 })
 
                 return changed;

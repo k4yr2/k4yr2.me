@@ -1,6 +1,6 @@
 import { AnimationRecord, AnimationState } from "@/data/state";
 
-const nextAnimation = (record : AnimationRecord) : boolean => {
+const animationFrame = (record : AnimationRecord) : boolean => {
     for(const [key, state] of Object.entries(record)) {
         switch (state) {
             case AnimationState.waiting:
@@ -15,4 +15,4 @@ const nextAnimation = (record : AnimationRecord) : boolean => {
     return false;
 }
 
-export default nextAnimation;
+export default animationFrame;
