@@ -35,3 +35,7 @@ export enum AnimationState {
     animating = 'animating',
     animated = 'animated',
 }
+
+export interface AnimationRecord {
+    [key: string]: AnimationState;
+}
