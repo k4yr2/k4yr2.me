@@ -44,8 +44,9 @@ const HeroTagline = () => {
             : <Typewriter options={{
                 delay: 25,
                 }}
+                
                 onInit={
-                    (typewriter) => { typewriter
+                    (typewriter) => {
                         writer.current = typewriter;
                     }
                 }
