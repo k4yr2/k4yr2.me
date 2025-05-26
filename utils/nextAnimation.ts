@@ -1,16 +1,14 @@
-import { AnimationState } from "@/data/state";
+import { AnimationRecord, AnimationState } from "@/data/state";
 
-const nextAnimation = (states : AnimationState[]) : boolean => {
-    for (let i = 0; i < states.length; i++) {
-        switch (states[i]) {
+const nextAnimation = (record : AnimationRecord) : boolean => {
+    for(const [key, state] of Object.entries(record)) {
+        switch (state) {
             case AnimationState.waiting:
-                states[i] = AnimationState.animating;
+                record[key] = AnimationState.animating;
                 return true;
             case AnimationState.animating:
-                states[i] = AnimationState.animated;
+                record[key] = AnimationState.animated;
                 return true;
-            case AnimationState.animated:
-                continue;
         }
     }
 
