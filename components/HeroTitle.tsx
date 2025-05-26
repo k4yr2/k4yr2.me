@@ -33,7 +33,7 @@ const HeroTitle = () => {
                     .start();
                 break;
         }
-    }, [animation_hi]);
+    }, [animation_hi, animationFrame]);
 
     useEffect(() => {
         switch (animation_back) {
@@ -48,7 +48,7 @@ const HeroTitle = () => {
                 .start();
                 break;
         }
-    }, [animation_back]);
+    }, [animation_back, animationFrame]);
 
     useEffect(() => {
         switch (animation_name) {
@@ -63,7 +63,7 @@ const HeroTitle = () => {
                 .start();
                 break;
         }
-    }, [animation_name]);
+    }, [animation_name, animationFrame]);
 
     return (
         <div className={[styles.heroTitle, spaceGrotesk.className].join(' ')}>

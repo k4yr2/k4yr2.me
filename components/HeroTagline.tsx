@@ -21,7 +21,7 @@ const HeroTagline = () => {
                     .start();
                 break;
         }
-    }, [animation_once]);
+    }, [animation_once, animationFrame]);
 
     useEffect(() => {
         switch (animation_now) {
@@ -36,7 +36,7 @@ const HeroTagline = () => {
                     .start();
                 break;
         }
-    }, [animation_now]);
+    }, [animation_now, animationFrame]);
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px', marginTop: '20px' }}>
