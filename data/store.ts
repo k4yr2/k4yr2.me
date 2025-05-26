@@ -1,12 +1,6 @@
 import { Activity } from "react-activity-calendar";
 import { create } from "zustand";
-
-export interface AppState {
-    isAnimated: boolean;
-    setAnimated: () => void;
-    calendarSource: Activity[];
-    setCalendarSource: (source: Activity[]) => void;
-}
+import AppState from "./state";
 
 const appStore = create<AppState>((set) => ({
     isAnimated: false,
